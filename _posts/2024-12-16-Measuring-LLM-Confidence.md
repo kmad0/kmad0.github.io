@@ -1,6 +1,6 @@
 # Measuring LLM Confidence
 
-### By: Kevin Madura
+#### By: Kevin Madura (kmadura [at] alixpartners [dot] com)
 
 AI technology, in particular Large Language Models (LLMs), has proven incredibly powerful in accelerating all sorts of knowledge work. Among their many capabilities, one area where LLMs excel is extracting structured data from unstructured data (such as longform text). Traditional approaches like Natural Language Processing (NLP), while effective, require specialized knowledge and lots of up-front work. With LLMs, this process becomes much more approachable and intuitive. LLMs today are now so advanced that you get many things "for free" that would've taken weeks of development just a few years ago.
 
@@ -200,7 +200,7 @@ However, there are real limitations that are left as an exercise for the reader.
 
 As an example, in the extraction below, the `service` field is specified as an open-ended `str` field for the LLM to populate. Because this can be entire sentences, the LLM generates  more tokens, which negatively impacts the confidence score as more `logprobs` are accrued. In contrast, `firm_name` or `invoice_date` are typically less than 5 tokens, leading to a much higher confidence. This means that, in the 'naive implementation' shown above, confidence can only be measured on a relative basis - i.e., `service` isn't necessarily comparable to `invoice_number` and should have its own threshold for further review. 
 
-![alt text](image.png)
+![alt text](/assets/image.png)
 
 To address this, we have developed thresholds for different field types - e.g., `boolean` fields are treated much differently than long-form `str` fields. We continue to explore these thresholds for longer-form fields.
 
