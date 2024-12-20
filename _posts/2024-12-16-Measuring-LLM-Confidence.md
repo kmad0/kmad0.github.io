@@ -1,12 +1,11 @@
 # Measuring LLM Confidence
 
-#### By: Kevin Madura (kmadura [at] alixpartners [dot] com)
+#### By: Kevin Madura 
+##### kmadura [at] alixpartners [dot] com
 
-AI technology, in particular Large Language Models (LLMs), has proven incredibly powerful in accelerating all sorts of knowledge work. Among their many capabilities, one area where LLMs excel is extracting structured data from unstructured data (such as longform text). Traditional approaches like Natural Language Processing (NLP), while effective, require specialized knowledge and lots of up-front work. With LLMs, this process becomes much more approachable and intuitive. LLMs today are now so advanced that you get many things "for free" that would've taken weeks of development just a few years ago.
+Large Language Models (LLMs) have burst into the conversation and have already proven incredibly powerful in accelerating all sorts of knowledge work. Initially explored by the wonderful open source library [instructor](https://useinstructor.com) (and others), the concept of generating *structured outputs* from unstructured text is an extremely powerful yet simple concept. Think PDF in, Excel out; for example, using a vendor contract as an input, we can quickly extract a row of specific datapoints like contract start date, payment terms, or total price. We would argue it will be one of the, if not the most popular capability used by enterprises.
 
-Initially explored by the wonderful open source library [instructor](https://useinstructor.com) (and others), the concept of generating structured outputs from LLMs is an extremely powerful yet simple concept. We would argue it will be one of the, if not the most popular capability used by enterprises. For example, this allows you to take a longform contract and extract specific datafields, such as payment terms, contract parties, and more.
-
-However, ensuring the reliability and accuracy of these outputs remains a real challenge, especially when integrating these models into production workflows. In this post, we explore one approach for reasoning about the outputs from LLMs. Specifically, we focus on measuring LLM confidence when using the [structured outputs](https://openai.com/index/introducing-structured-outputs-in-the-api/) API feature from OpenAI.
+While this output useful, for production workflows it's important to quantitatively measure how confident the model is in generating this output so we can respond accordingly. In this post, we explore one approach for doing just that. Specifically, we focus on measuring LLM confidence when using the [structured outputs](https://openai.com/index/introducing-structured-outputs-in-the-api/) API feature from OpenAI.
 
 ## The Value Proposition
 
